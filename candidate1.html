@@ -1,0 +1,835 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+      <meta name="description" content="Revolutionary farming dashboard helping Sikkim farmers save water, protect crops, and make smarter decisions with real-time soil moisture, weather alerts, and irrigation scheduling in local languages.">
+      <meta name="theme-color" content="#ffffff">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="robots" content="">
+
+      <!-- Alpine.js - Load first -->
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+      
+      <!-- Font Links -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+      <title>Smart Farming Dashboard - Water-Saving Irrigation & Crop Protection for Sikkim Farmers</title>
+      <!-- SEO Description -->
+      <meta name="description" content="Revolutionary farming dashboard helping Sikkim farmers save water, protect crops, and make smarter decisions with real-time soil moisture, weather alerts, and irrigation scheduling in local languages.">
+
+      <!-- Performance optimization: Preload critical resources -->
+      <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+      
+      <!-- Core CSS and Scripts -->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+      
+      <!-- Project-specific styles -->
+      <style>
+        /* Base styles */
+        :root {
+          --primary-color: #2D5016;
+          --secondary-color: #8BC34A;
+          --accent-color: ;
+        }
+
+        /* Strict no-scrollbar rules */
+        * {
+          -ms-overflow-style: none !important;  /* IE and Edge */
+          scrollbar-width: none !important;     /* Firefox */
+        }
+        *::-webkit-scrollbar {
+          display: none !important;             /* Chrome, Safari and Opera */
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+          font-family: Nunito, Inter, system-ui, sans-serif;
+        }
+        body {
+          font-family: Inter, Inter, system-ui, sans-serif;
+        }
+
+        /* Interactive elements */
+        .interactive-element {
+          transition: all 0.3s ease;
+        }
+        .interactive-element:hover {
+          transform: translateY(-2px);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+          width: 8px;
+          height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+          background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+          background: #888;
+          border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background: #555;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        .fade-in {
+          animation: fadeIn 0.5s ease-in-out;
+        }
+      </style>
+
+      <!-- Dynamic Meta Tags -->
+      <meta name="description" content="">
+      <meta name="keywords" content="">
+      <meta name="robots" content="">
+      <meta property="og:title" content="">
+      <meta property="og:description" content="">
+      <meta property="og:image" content="">
+      <meta property="og:type" content="website">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:site_name" content="Smart Farming Dashboard">
+      
+      <!-- Favicon -->
+      <link rel="icon" type="image/x-icon" href="🌱">
+
+      <!-- Header Scripts -->
+      <script id="header-scripts">
+        // This script tag will be replaced with actual scripts.head content
+        if (window.scripts && window.scripts.head) {
+          document.getElementById('header-scripts').outerHTML = window.scripts.head;
+        }
+      </script>
+
+      <!-- Project Configuration -->
+      <script>
+        window.projectConfig = {
+          name: 'Smart Farming Dashboard',
+          type: '',
+          settings: {
+            colors: {
+              primary: '#2D5016',
+              secondary: '#8BC34A',
+              accent: ''
+            },
+            fonts: {
+              primary: 'Nunito',
+              secondary: 'Inter'
+            }
+          }
+        };
+      </script>
+   <style>
+        [data-section-id] {
+          display: none;
+        }
+        [data-section-id]:first-child {
+          display: block;
+        }
+      </style>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+   <body class="antialiased text-gray-900 bg-white">
+      <!-- Skip to main content link for accessibility -->
+      <a href="#main-content" 
+         class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+         Skip to main content
+      </a>
+
+      <!-- Content will be injected here by the build process -->
+      <mountpoint><div id="RolloutPageContent"><header id="header" class="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-neutral-200 z-50">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <div class="flex-shrink-0">
+        <a href="#hero" class="text-2xl font-bold text-neutral-900">🌾 SmartFarm</a>
+      </div>
+      
+      <div class="hidden md:block">
+        <ul class="flex space-x-8">
+          <li>
+            <a href="#hero" class="text-neutral-700 hover:text-amber-500 transition-colors duration-200 font-medium">Home</a>
+          </li>
+          <li>
+            <a href="#value-proposition" class="text-neutral-700 hover:text-amber-500 transition-colors duration-200 font-medium">How It Works</a>
+          </li>
+          <li>
+            <a href="#live-preview" class="text-neutral-700 hover:text-amber-500 transition-colors duration-200 font-medium">Live Demo</a>
+          </li>
+          <li>
+            <a href="#features" class="text-neutral-700 hover:text-amber-500 transition-colors duration-200 font-medium">Features</a>
+          </li>
+          <li>
+            <a href="#success-stories" class="text-neutral-700 hover:text-amber-500 transition-colors duration-200 font-medium">Success Stories</a>
+          </li>
+          <li>
+            <a href="#cta" class="text-neutral-700 hover:text-amber-500 transition-colors duration-200 font-medium">Get Started</a>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="flex items-center space-x-4">
+        <button id="language-toggle" class="text-neutral-700 hover:text-amber-500 transition-colors duration-200">
+          🌐 EN
+        </button>
+        
+        <button id="mobile-menu-btn" class="md:hidden text-neutral-700 hover:text-amber-500">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    <div id="mobile-menu" class="md:hidden hidden pb-4">
+      <ul class="space-y-2">
+        <li>
+          <a href="#hero" class="block py-2 text-neutral-700 hover:text-amber-500 transition-colors duration-200">Home</a>
+        </li>
+        <li>
+          <a href="#value-proposition" class="block py-2 text-neutral-700 hover:text-amber-500 transition-colors duration-200">How It Works</a>
+        </li>
+        <li>
+          <a href="#live-preview" class="block py-2 text-neutral-700 hover:text-amber-500 transition-colors duration-200">Live Demo</a>
+        </li>
+        <li>
+          <a href="#features" class="block py-2 text-neutral-700 hover:text-amber-500 transition-colors duration-200">Features</a>
+        </li>
+        <li>
+          <a href="#success-stories" class="block py-2 text-neutral-700 hover:text-amber-500 transition-colors duration-200">Success Stories</a>
+        </li>
+        <li>
+          <a href="#cta" class="block py-2 text-neutral-700 hover:text-amber-500 transition-colors duration-200">Get Started</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+  
+  // Language toggle
+  const languageToggle = document.getElementById('language-toggle');
+  const languages = ['EN', 'ने', 'བོ', 'लि'];
+  let currentLang = 0;
+  
+  languageToggle.addEventListener('click', () => {
+    currentLang = (currentLang + 1) % languages.length;
+    languageToggle.textContent = `🌐 ${languages[currentLang]}`;
+  });
+  
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!mobileMenu.classList.contains('hidden') && 
+        !mobileMenu.contains(e.target) && 
+        !mobileMenuBtn.contains(e.target)) {
+      mobileMenu.classList.add('hidden');
+    }
+  });
+  
+  // Smooth scroll for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        mobileMenu.classList.add('hidden');
+      }
+    });
+  });
+</script>
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-neutral-900">
+  <div class="absolute inset-0 z-0">
+    <img src="https://images.unsplash.com/photo-1718364783241-7db930fb5250?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8MXx8c2lra2ltJTIwdGVycmFjZWQlMjBmYXJtbGFuZHxlbnwxfDB8fHwxNzU3OTQ4OTIyfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Terraced farmland in Sikkim" class="w-full h-full object-cover opacity-30" loading="eager" />
+    <div class="absolute inset-0 bg-gradient-to-br from-neutral-900/80 via-neutral-900/60 to-neutral-900/80"></div>
+  </div>
+  
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="mb-6 flex justify-center items-center space-x-4">
+      <div class="flex items-center space-x-2 text-yellow-400">
+        <span class="text-2xl">💧</span>
+        <span class="text-2xl">🌱</span>
+        <span class="text-2xl">🌡</span>
+      </div>
+      <div class="bg-neutral-800 rounded-lg px-4 py-2">
+        <select id="language-toggle" class="bg-transparent text-neutral-200 border-none outline-none">
+          <option value="en">English</option>
+          <option value="ne">नेपाली</option>
+          <option value="le">Lepcha</option>
+          <option value="dz">རྫོང་ཁ</option>
+        </select>
+      </div>
+    </div>
+    
+    <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+      Smart Farming Made Simple
+    </h1>
+    
+    <p class="text-xl md:text-2xl text-neutral-200 mb-8 max-w-2xl mx-auto leading-relaxed">
+      Transform your farmland with intelligent monitoring. Save water, protect crops, and grow smarter.
+    </p>
+    
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <button id="demo-btn" class="bg-yellow-400 hover:bg-yellow-500 text-neutral-900 font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
+        Try Demo Dashboard
+      </button>
+      <button id="how-it-works-btn" class="border-2 border-white text-white hover:bg-white hover:text-neutral-900 font-bold py-4 px-8 rounded-lg transition-all duration-300">
+        See How It Works
+      </button>
+    </div>
+    
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+      <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+        <img src="https://images.unsplash.com/photo-1669288985566-b9b58fde9f90?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8Mnx8c2lra2ltJTIwdGVycmFjZWQlMjBmYXJtbGFuZHxlbnwxfDB8fHwxNzU3OTQ4OTIyfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Sikkim landscape with trees and buildings" class="w-full h-24 object-cover rounded mb-3 opacity-80" loading="lazy" />
+        <p class="text-neutral-200 text-sm">Real-time monitoring across your fields</p>
+      </div>
+      <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+        <img src="https://images.unsplash.com/photo-1702373749921-3ed85367c2ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8M3x8c2lra2ltJTIwdGVycmFjZWQlMjBmYXJtbGFuZHxlbnwxfDB8fHwxNzU3OTQ4OTIyfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Grassy field with blue sky" class="w-full h-24 object-cover rounded mb-3 opacity-80" loading="lazy" />
+        <p class="text-neutral-200 text-sm">Weather-resistant sensors built for Sikkim</p>
+      </div>
+      <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+        <div class="bg-gradient-to-br from-yellow-400/20 to-green-500/20 rounded h-24 mb-3 flex items-center justify-center">
+          <span class="text-3xl">📱</span>
+        </div>
+        <p class="text-neutral-200 text-sm">Works offline on any smartphone</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="value-proposition" class="py-20 bg-neutral-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-neutral-900 mb-4">Why Farmers Need This</h2>
+      <p class="text-xl text-neutral-600 max-w-2xl mx-auto">Simple technology that works for you</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="bg-white rounded-xl p-6 shadow-sm border border-neutral-200">
+        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+          <span class="text-3xl">💧</span>
+        </div>
+        <h3 class="text-xl font-semibold text-neutral-900 mb-2">Save Water</h3>
+        <p class="text-neutral-600 mb-4">Smart irrigation scheduling and tank monitoring reduce water usage by up to 30%</p>
+        <img src="https://images.unsplash.com/photo-1725306148733-1db40293fbde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8M3x8c3VzdGFpbmFibGUlMjBmYXJtaW5nJTIwdGVjaG5vbG9neXxlbnwxfDB8fHwxNzU3ODI5MTEzfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Sustainable farming technology" class="w-full h-32 object-cover rounded-lg" loading="lazy" />
+      </div>
+      
+      <div class="bg-white rounded-xl p-6 shadow-sm border border-neutral-200">
+        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+          <span class="text-3xl">🌱</span>
+        </div>
+        <h3 class="text-xl font-semibold text-neutral-900 mb-2">Protect Crops</h3>
+        <p class="text-neutral-600 mb-4">Get disease and pest alerts linked to local climate data before problems spread</p>
+        <img src="https://images.unsplash.com/photo-1725338281767-5bbd183e5b54?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8MXx8c3VzdGFpbmFibGUlMjBmYXJtaW5nJTIwdGVjaG5vbG9neXxlbnwxfDB8fHwxNzU3ODI5MTEzfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Tunnel greenhouse farming" class="w-full h-32 object-cover rounded-lg" loading="lazy" />
+      </div>
+      
+      <div class="bg-white rounded-xl p-6 shadow-sm border border-neutral-200">
+        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+          <span class="text-3xl">📱</span>
+        </div>
+        <h3 class="text-xl font-semibold text-neutral-900 mb-2">Easy to Use</h3>
+        <p class="text-neutral-600 mb-4">Works offline on basic smartphones. Supports Nepali, Lepcha, Bhutanese & English</p>
+        <div class="w-full h-32 bg-gradient-to-br from-yellow-400 to-green-500 rounded-lg flex items-center justify-center">
+          <span class="text-5xl">📱</span>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-xl p-6 shadow-sm border border-neutral-200">
+        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+          <span class="text-3xl">🌡</span>
+        </div>
+        <h3 class="text-xl font-semibold text-neutral-900 mb-2">Smarter Decisions</h3>
+        <p class="text-neutral-600 mb-4">Visual graphs and insights help you plan planting, irrigation and harvest timing</p>
+        <img src="https://images.unsplash.com/photo-1715198901384-0b7ff9f37a77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8Mnx8c3VzdGFpbmFibGUlMjBmYXJtaW5nJTIwdGVjaG5vbG9neXxlbnwxfDB8fHwxNzU3ODI5MTEzfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Protected crops with white textiles" class="w-full h-32 object-cover rounded-lg" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+<section id="live-preview" class="py-20 bg-gradient-to-br from-green-50 to-yellow-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-neutral-900 mb-4">Live Demo Dashboard</h2>
+      <p class="text-xl text-neutral-600 max-w-2xl mx-auto">See exactly what your smart farming dashboard looks like</p>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="bg-white rounded-2xl p-6 shadow-xl border border-neutral-200">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-semibold text-neutral-900">Soil Moisture</h3>
+          <span class="text-green-500 font-bold">85%</span>
+        </div>
+        <div class="relative">
+          <div class="w-full bg-neutral-200 rounded-full h-4">
+            <div class="bg-green-500 h-4 rounded-full" style="width: 85%"></div>
+          </div>
+          <div class="mt-2 text-sm text-neutral-600">
+            <span class="text-green-600">✅ Optimal</span>
+          </div>
+        </div>
+        <img src="https://images.unsplash.com/photo-1744230673231-865d54a0aba4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8MXx8c21hcnQlMjBmYXJtaW5nJTIwZGFzaGJvYXJkJTIwVUl8ZW58MXwwfHx8MTc1Nzk0OTA0Nnww&ixlib=rb-4.1.0&q=80&w=1080" alt="Artificial Intelligence in Agriculture" class="w-full h-32 object-cover rounded-lg mt-4 opacity-80" loading="lazy" />
+      </div>
+      
+      <div class="bg-white rounded-2xl p-6 shadow-xl border border-neutral-200">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-semibold text-neutral-900">Water Tank Level</h3>
+          <span class="text-blue-500 font-bold">72%</span>
+        </div>
+        <div class="relative h-32 bg-gradient-to-b from-blue-100 to-blue-200 rounded-lg overflow-hidden">
+          <div class="absolute bottom-0 left-0 right-0 bg-blue-500" style="height: 72%"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <span class="text-white font-bold text-lg">72%</span>
+          </div>
+        </div>
+        <div class="mt-2 text-sm text-neutral-600">
+          <span class="text-blue-600">✅ Good</span>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-2xl p-6 shadow-xl border border-neutral-200">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-semibold text-neutral-900">Weather Alerts</h3>
+          <span class="text-orange-500 font-bold">⚠</span>
+        </div>
+        <div class="space-y-3">
+          <div class="flex items-center justify-between p-3 bg-orange-100 rounded-lg">
+            <span class="text-sm">High Humidity</span>
+            <span class="text-xs text-orange-600">Risk: Fungal</span>
+          </div>
+          <div class="flex items-center justify-between p-3 bg-blue-100 rounded-lg">
+            <span class="text-sm">Temperature</span>
+            <span class="text-xs text-blue-600">28°C</span>
+          </div>
+          <div class="flex items-center justify-between p-3 bg-green-100 rounded-lg">
+            <span class="text-sm">Rain Forecast</span>
+            <span class="text-xs text-green-600">Light</span>
+          </div>
+        </div>
+        <img src="https://images.unsplash.com/photo-1588642147617-55cef57560c3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8M3x8c21hcnQlMjBmYXJtaW5nJTIwZGFzaGJvYXJkJTIwVUl8ZW58MXwwfHx8MTc1Nzk0OTA0Nnww&ixlib=rb-4.1.0&q=80&w=1080" alt="Smart farming dashboard UI" class="w-full h-32 object-cover rounded-lg mt-4 opacity-80" loading="lazy" />
+      </div>
+    </div>
+    
+    <div class="mt-12 bg-white rounded-2xl p-8 shadow-xl border border-neutral-200">
+      <div class="text-center mb-6">
+        <h3 class="text-2xl font-bold text-neutral-900 mb-2">Interactive Preview</h3>
+        <p class="text-neutral-600">Tap or swipe to explore the dashboard on mobile</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-neutral-100 rounded-xl p-4">
+          <h4 class="font-semibold text-neutral-900 mb-3">🌱 Crop Health Monitor</h4>
+          <div class="space-y-2">
+            <div class="bg-green-200 rounded p-2 text-sm">✅ Ginger: Healthy</div>
+            <div class="bg-yellow-200 rounded p-2 text-sm">⚠ Tomato: Needs water</div>
+            <div class="bg-green-200 rounded p-2 text-sm">✅ Cabbage: Ideal growth</div>
+          </div>
+        </div>
+        
+        <div class="bg-neutral-100 rounded-xl p-4">
+          <h4 class="font-semibold text-neutral-900 mb-3">📊 Weekly Summary</h4>
+          <div class="space-y-2 text-sm">
+            <div>Water saved: <span class="font-bold text-green-600">15L</span></div>
+            <div>Crop alerts: <span class="font-bold text-orange-600">2</span></div>
+            <div>Weather updates: <span class="font-bold text-blue-600">5</span></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-6 text-center">
+        <p class="text-sm text-neutral-500">💡 Tip: Dashboard updates automatically every 15 minutes</p>
+      </div>
+    </div>
+    
+    <div class="mt-12 text-center">
+      <button id="mobile-demo-btn" class="bg-yellow-400 hover:bg-yellow-500 text-neutral-900 font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
+        Try on Your Phone
+      </button>
+    </div>
+  </div>
+</section>
+<section id="features" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-neutral-900 mb-4">Features</h2>
+      <p class="text-xl text-neutral-600 max-w-2xl mx-auto">Built for farmers, designed for partners</p>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div class="bg-green-50 rounded-2xl p-8">
+        <h3 class="text-2xl font-bold text-neutral-900 mb-6">For Farmers</h3>
+        
+        <div class="space-y-6">
+          <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+              <span class="text-white text-xl">💧</span>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-semibold text-neutral-900">ON/OFF Irrigation Buttons</h4>
+              <p class="text-neutral-600 text-sm">One tap to control water flow</p>
+            </div>
+            <button class="bg-white border border-green-500 text-green-600 px-4 py-2 rounded-lg font-medium">ON</button>
+          </div>
+          
+          <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center">
+              <span class="text-white text-xl">📱</span>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-semibold text-neutral-900">SMS/Push Alerts</h4>
+              <p class="text-neutral-600 text-sm">Get notified in your language</p>
+            </div>
+            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">6 alerts</span>
+          </div>
+          
+          <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+              <span class="text-white text-xl">📊</span>
+            </div>
+            <div class="flex-1">
+              <h4 class="font-semibold text-neutral-900">Rain + Irrigation Chart</h4>
+              <p class="text-neutral-600 text-sm">Balance natural and artificial watering</p>
+            </div>
+            <div class="bg-blue-100 rounded-lg p-2">
+              <div class="text-xs text-blue-600">This week</div>
+              <div class="text-sm font-bold">65mm</div>
+            </div>
+          </div>
+          
+          <img src="https://images.unsplash.com/photo-1725338281767-5bbd183e5b54?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8MXx8c3VzdGFpbmFibGUlMjBmYXJtaW5nJTIwdGVjaG5vbG9neXxlbnwxfDB8fHwxNzU3ODI5MTEzfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Sustainable farming technology" class="w-full h-48 object-cover rounded-lg mt-4" loading="lazy" />
+        </div>
+      </div>
+      
+      <div class="bg-neutral-900 rounded-2xl p-8 text-white">
+        <h3 class="text-2xl font-bold mb-6">For Tech Partners</h3>
+        
+        <div class="space-y-4">
+          <div class="bg-neutral-800 rounded-lg p-4">
+            <h4 class="font-semibold mb-2">Frontend Technology</h4>
+            <div class="text-sm text-neutral-300">React.js with Tailwind CSS</div>
+            <div class="flex items-center mt-2">
+              <span class="bg-blue-600 text-white px-2 py-1 rounded text-xs mr-2">React</span>
+              <span class="bg-green-500 text-white px-2 py-1 rounded text-xs">Tailwind</span>
+            </div>
+          </div>
+          
+          <div class="bg-neutral-800 rounded-lg p-4">
+            <h4 class="font-semibold mb-2">Backend Infrastructure</h4>
+            <div class="text-sm text-neutral-300">Flask/Node.js API with Firebase/SQL</div>
+            <div class="flex items-center mt-2">
+              <span class="bg-yellow-600 text-white px-2 py-1 rounded text-xs mr-2">Flask</span>
+              <span class="bg-green-600 text-white px-2 py-1 rounded text-xs mr-2">Firebase</span>
+              <span class="bg-blue-600 text-white px-2 py-1 rounded text-xs">SQL</span>
+            </div>
+          </div>
+          
+          <div class="bg-neutral-800 rounded-lg p-4">
+            <h4 class="font-semibold mb-2">Hardware Integration</h4>
+            <div class="text-sm text-neutral-300">ESP32 sensors with WiFi connectivity</div>
+            <div class="flex items-center mt-2">
+              <span class="bg-orange-600 text-white px-2 py-1 rounded text-xs mr-2">ESP32</span>
+              <span class="bg-purple-600 text-white px-2 py-1 rounded text-xs">WiFi</span>
+            </div>
+          </div>
+          
+          <div class="bg-neutral-800 rounded-lg p-4">
+            <h4 class="font-semibold mb-2">Communication</h4>
+            <div class="text-sm text-neutral-300">Twilio SMS gateway, Push notifications</div>
+            <div class="flex items-center mt-2">
+              <span class="bg-red-600 text-white px-2 py-1 rounded text-xs mr-2">Twilio</span>
+              <span class="bg-green-500 text-white px-2 py-1 rounded text-xs">SMS</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-6">
+          <img src="https://images.unsplash.com/photo-1715198901384-0b7ff9f37a77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8Mnx8c3VzdGFpbmFibGUlMjBmYXJtaW5nJTIwdGVjaG5vbG9neXxlbnwxfDB8fHwxNzU3ODI5MTEzfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Protected crops with white textiles" class="w-full h-32 object-cover rounded-lg opacity-80" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="success-stories" class="py-20 bg-gradient-to-br from-green-100 via-yellow-50 to-green-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-neutral-900 mb-4">Success Stories</h2>
+      <p class="text-xl text-neutral-600 max-w-2xl mx-auto">Real farmers, real results</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white rounded-2xl shadow-xl p-6 transform hover:scale-105 transition-transform">
+        <div class="flex items-center mb-4">
+          <img src="https://images.unsplash.com/photo-1592620839827-aa8310a33e81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8MXx8bmVwYWxpJTIwZmFybWVyJTIwc21pbGluZ3xlbnwxfDB8fHwxNzU3OTQ5MjMzfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Ramesh, ginger farmer from West Sikkim" class="w-16 h-16 rounded-full object-cover mr-4" loading="lazy" />
+          <div>
+            <h3 class="font-bold text-neutral-900">Ramesh</h3>
+            <p class="text-sm text-neutral-600">Ginger Farmer, West Sikkim</p>
+          </div>
+        </div>
+        <blockquote class="text-neutral-700 mb-4">
+          "Saved 20% water last month with smart irrigation scheduling. My ginger crop has never looked healthier!"
+        </blockquote>
+        <div class="flex items-center justify-between">
+          <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">20% Water Saved</span>
+          <span class="text-green-500 font-bold">✅</span>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-2xl shadow-xl p-6 transform hover:scale-105 transition-transform">
+        <div class="flex items-center mb-4">
+          <img src="https://images.unsplash.com/photo-1579406842270-ea87c39a8a12?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8Mnx8bmVwYWxpJTIwZmFybWVyJTIwc21pbGluZ3xlbnwxfDB8fHwxNzU3OTQ5MjMzfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Laxmi, cabbage farmer" class="w-16 h-16 rounded-full object-cover mr-4" loading="lazy" />
+          <div>
+            <h3 class="font-bold text-neutral-900">Laxmi</h3>
+            <p class="text-sm text-neutral-600">Cabbage Farmer, East Sikkim</p>
+          </div>
+        </div>
+        <blockquote class="text-neutral-700 mb-4">
+          "Early humidity alerts saved my entire cabbage crop from fungal wilt. I got warnings 3 days before the problem started!"
+        </blockquote>
+        <div class="flex items-center justify-between">
+          <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">3 Days Early</span>
+          <span class="text-blue-500 font-bold">✅</span>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-2xl shadow-xl p-6 transform hover:scale-105 transition-transform">
+        <div class="flex items-center mb-4">
+          <img src="https://images.unsplash.com/photo-1520296337137-1f4843838f3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8M3x8bmVwYWxpJTIwZmFybWVyJTIwc21pbGluZ3xlbnwxfDB8fHwxNzU3OTQ5MjMzfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Prakash, tomato farmer" class="w-16 h-16 rounded-full object-cover mr-4" loading="lazy" />
+          <div>
+            <h3 class="font-bold text-neutral-900">Prakash</h3>
+            <p class="text-sm text-neutral-600">Tomato Farmer, South Sikkim</p>
+          </div>
+        </div>
+        <blockquote class="text-neutral-700 mb-4">
+          "Local language support made everything simple. My family can now help monitor the farm from their phones!"
+        </blockquote>
+        <div class="flex items-center justify-between">
+          <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">3 Languages</span>
+          <span class="text-purple-500 font-bold">✅</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-white rounded-2xl shadow-xl p-8">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-green-600 mb-2">15%</div>
+          <div class="text-neutral-600">Average water saved monthly</div>
+        </div>
+      </div>
+      
+      <div class="bg-white rounded-2xl shadow-xl p-8">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-blue-600 mb-2">92%</div>
+          <div class="text-neutral-600">Farmer satisfaction rate</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mt-12 text-center">
+      <div class="bg-white rounded-2xl shadow-xl p-8 max-w-4xl mx-auto">
+        <h3 class="text-2xl font-bold text-neutral-900 mb-4">Join 1,200+ Happy Farmers</h3>
+        <p class="text-neutral-600 mb-6">Start your journey to smarter farming today</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg transition-colors">
+            See More Success Stories
+          </button>
+          <button class="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white font-bold py-3 px-8 rounded-lg transition-colors">
+            Start Your Story
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="cta" class="py-20 bg-gradient-to-br from-green-600 to-yellow-500">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-5xl font-bold text-white mb-6">Ready to Start Smart Farming?</h2>
+      <p class="text-xl text-white/90 max-w-2xl mx-auto">Join 1,200+ farmers who've already transformed their farms</p>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div class="space-y-8">
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+          <h3 class="text-2xl font-bold text-white mb-4">Get Started Free</h3>
+          <ul class="space-y-3 text-white">
+            <li class="flex items-center"><span class="mr-3">✅</span> 30-day free trial</li>
+            <li class="flex items-center"><span class="mr-3">✅</span> No credit card required</li>
+            <li class="flex items-center"><span class="mr-3">✅</span> Local language support</li>
+            <li class="flex items-center"><span class="mr-3">✅</span> Works offline</li>
+          </ul>
+          <button class="w-full bg-white text-green-600 font-bold py-4 px-8 rounded-lg mt-6 hover:bg-yellow-400 hover:text-neutral-900 transition-all duration-300">
+            Get Started Free
+          </button>
+        </div>
+        
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+          <h3 class="text-2xl font-bold text-white mb-4">Contact Us</h3>
+          <p class="text-white/90 mb-4">Have questions? We're here to help!</p>
+          <button class="w-full border-2 border-white text-white font-bold py-4 px-8 rounded-lg hover:bg-white hover:text-green-600 transition-all duration-300">
+            Contact Us
+          </button>
+        </div>
+      </div>
+      
+      <div class="space-y-6">
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+          <img src="https://images.unsplash.com/photo-1744230673231-865d54a0aba4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8MXx8ZmFybWVyJTIwdXNpbmclMjBzbWFydHBob25lJTIwZGFzaGJvYXJkfGVufDF8MHx8fDE3NTc5NDkyNzV8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Farmer using smartphone dashboard" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy" />
+          <h4 class="text-white font-semibold mb-2">Mobile-First Design</h4>
+          <p class="text-white/80 text-sm">Works perfectly on any smartphone, even with slow internet</p>
+        </div>
+        
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+          <img src="https://images.unsplash.com/photo-1594179131702-112ff2a880e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8Mnx8ZmFybWVyJTIwdXNpbmclMjBzbWFydHBob25lJTIwZGFzaGJvYXJkfGVufDF8MHx8fDE3NTc5NDkyNzV8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Woman farmer using smartphone" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy" />
+          <h4 class="text-white font-semibold mb-2">Offline-First PWA</h4>
+          <p class="text-white/80 text-sm">Continues working even without internet connection</p>
+        </div>
+        
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+          <img src="https://images.unsplash.com/photo-1635913190231-f525ed18df8d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MzQ2fDB8MXxzZWFyY2h8M3x8ZmFybWVyJTIwdXNpbmclMjBzbWFydHBob25lJTIwZGFzaGJvYXJkfGVufDF8MHx8fDE3NTc5NDkyNzV8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Man with turban using smartphone" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy" />
+          <h4 class="text-white font-semibold mb-2">Local Language Support</h4>
+          <p class="text-white/80 text-sm">Available in Nepali, Lepcha, Bhutanese & English</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mt-16 text-center">
+      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">
+        <h4 class="text-2xl font-bold text-white mb-4">🌱 Ready to Transform Your Farm?</h4>
+        <p class="text-white/90 mb-6">Start your free trial today and see the difference in 30 days</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button class="bg-yellow-400 hover:bg-yellow-500 text-neutral-900 font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
+            Get Started Free
+          </button>
+          <button class="border-2 border-white text-white hover:bg-white hover:text-green-600 font-bold py-4 px-8 rounded-lg transition-all duration-300">
+            Contact Us
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer id="footer" class="bg-neutral-900 text-white py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-2xl font-bold mb-4">🌾 SmartFarm</h3>
+        <p class="text-neutral-300 mb-4">Making farming smarter and simpler for everyone.</p>
+        <div class="flex space-x-4">
+          <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">NEP</span>
+          <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">LEP</span>
+          <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">DZO</span>
+          <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm">ENG</span>
+        </div>
+      </div>
+      
+      <div>
+        <h4 class="font-semibold mb-4">Product</h4>
+        <ul class="space-y-2 text-neutral-300">
+          <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+          <li><a href="#live-preview" class="hover:text-white transition-colors">Live Demo</a></li>
+          <li><a href="#success-stories" class="hover:text-white transition-colors">Success Stories</a></li>
+          <li><a href="#value-proposition" class="hover:text-white transition-colors">How It Works</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="font-semibold mb-4">Support</h4>
+        <ul class="space-y-2 text-neutral-300">
+          <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+          <li><a href="#support" class="hover:text-white transition-colors">Help Center</a></li>
+          <li><a href="#terms" class="hover:text-white transition-colors">Terms</a></li>
+          <li><a href="#privacy" class="hover:text-white transition-colors">Privacy</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="font-semibold mb-4">Get in Touch</h4>
+        <ul class="space-y-2 text-neutral-300">
+          <li>📱 WhatsApp: +91-87654-3210</li>
+          <li>📧 Email: hello@smartfarm.sikkim</li>
+          <li>📍 Gangtok, Sikkim</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="border-t border-neutral-700 mt-12 pt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="text-neutral-300 mb-4 md:mb-0">
+          © 2024 SmartFarm. Built for farmers, by farmers.
+        </p>
+        <div class="flex space-x-6 text-sm">
+            <a href="#contact" class="text-neutral-300 hover:text-white transition-colors">Contact</a>
+            <a href="#privacy" class="text-neutral-300 hover:text-white transition-colors">Privacy</a>
+            <a href="#terms" class="text-neutral-300 hover:text-white transition-colors">Terms</a>
+            <a href="#support" class="text-neutral-300 hover:text-white transition-colors">Support</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer></div></mountpoint>
+
+      <!-- Core functionality scripts -->
+      <script>
+        // Initialize interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+          // Add interactive behaviors
+          const interactiveElements = document.querySelectorAll('.interactive-element');
+          interactiveElements.forEach(element => {
+            element.addEventListener('mouseenter', () => {
+              element.classList.add('hover');
+            });
+            element.addEventListener('mouseleave', () => {
+              element.classList.remove('hover');
+            });
+          });
+
+          // Initialize any dynamic content
+          const dynamicContent = document.querySelectorAll('[data-dynamic]');
+          dynamicContent.forEach(content => {
+            // Add fade-in animation
+            content.classList.add('fade-in');
+          });
+        });
+
+        // Handle navigation
+        function handleNavigation(event) {
+          const link = event.currentTarget;
+          if (link.hasAttribute('data-nav')) {
+            event.preventDefault();
+            const target = link.getAttribute('data-nav');
+            document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+
+        // Initialize navigation
+        document.querySelectorAll('[data-nav]').forEach(link => {
+          link.addEventListener('click', handleNavigation);
+        });
+      </script>
+
+      <!-- Body Scripts -->
+      <script id="body-scripts">
+        // This script tag will be replaced with actual scripts.body content
+        if (window.scripts && window.scripts.body) {
+          document.getElementById('body-scripts').outerHTML = window.scripts.body;
+        }
+      </script>
+   </body>
+</html>
