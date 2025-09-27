@@ -11,7 +11,7 @@
 
 Smart Farm is a comprehensive dashboard and alert system designed specifically for the needs of farmers in Sikkim. Our platform provides real-time data on soil moisture, weather conditions, and crop health, empowering farmers to make smarter, data-driven decisions. By integrating with robust hardware and offering multi-language support, we aim to save water, protect crops from pests and disease, and ultimately increase yield and profitability.
 
-**[➡️ View the Live Demo Dashboard](https://vanshkodi.github.io/SIH_Smart_Irrigation_Solution/)**
+**[➡️ View the Live Demo Dashboard](https://vanshkodi.github.io/SIH_Smart_Irrigation_Solution/sampleDashboard.html)**
 
 ---
 
