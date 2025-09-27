@@ -5,6 +5,10 @@
 **Link to previous project with overlapping implementation:**
 [Home automation project link by team applying the concept of esp networking to cloud](https://github.com/JD-008/Voice-Controlled-Home-Automation-System-)
 
+
+**External MVP Demonstration (ESP32 & LoRa Concept):**
+[ESP32 LoRa Sensor Monitoring Web Server Tutorial](https://randomnerdtutorials.com/esp32-lora-sensor-web-server/)
+
 ---
 
 **Transforming agriculture in Sikkim with intelligent, accessible, and water-saving technology.**
